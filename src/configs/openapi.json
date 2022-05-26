@@ -1,0 +1,38 @@
+{
+  "definition": {
+    "openapi": "3.0.3",
+    "info": {
+      "title": "Typescript Express Boilerplate",
+      "version": "1.0.0",
+      "description": "Production ready typescript express boilerplate",
+      "contact": {
+        "name": "Taeyoon Kwon",
+        "url": "https://github.com/TaeyoonKwon",
+        "email": "tabriell@gmail.com"
+      },
+      "servers": [
+        {
+          "url": "http://localhost:3000",
+          "description": "Local server"
+        }
+      ]
+    },
+    "components": {
+      "securitySchemes": {
+        "BearerAuth": {
+          "type": "http",
+          "scheme": "bearer",
+          "bearerFormat": "JWT",
+          "name": "Authorization",
+          "in": "header"
+        },
+        "ApiKeyAuth": {
+          "type": "apiKey",
+          "name": "X-API-Key",
+          "in": "header"
+        }
+      }
+    }
+  },
+  "apis": ["**/*.ts"]
+}

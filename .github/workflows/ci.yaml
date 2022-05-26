@@ -1,0 +1,33 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "**"
+  pull_request:
+    branches: [main]
+    paths:
+      - "**"
+
+jobs:
+  test:
+    name: Run app tests on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+      fail-fast: false
+    steps:
+      - uses: actions/checkout@v2
+
+      # Node
+      - uses: actions/setup-node@v1
+        with:
+          node-version: "16"
+
+      - name: Node installation
+        run: npm install
+
+      - name: Run Tests
+        run: npm run test
