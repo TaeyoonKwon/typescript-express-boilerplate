@@ -29,7 +29,17 @@ jobs:
       - name: Create .env file
         run: |
           touch .env
-          echo ${{ secrets.ENV }} >> .env
+          echo NODE_ENV=dev >> .env
+          echo PORT=8080 >> .env
+          echo API_KEY=TESTAPIKEY >> .env
+          echo ENCRYPTION_SECRET=TESTSECRET >> .env
+          echo JWT_SECRET=TESTJWTSECRET >> .env
+          echo MONGO_CLUSTER=${{ secrets.MONGO_CLUSTER }} >> .env
+          echo MONGO_USER=${{ secrets.MONGO_USER }} >> .env
+          echo MONGO_PASSWORD=${{ secrets.MONGO_PASSWORD }} >> .env
+          echo MONGO_DBNAME=${{ secrets.MONGO_DBNAME }} >> .env
+          echo MONGO_READONLY_USER=${{ secrets.MONGO_READONLY_USER }} >> .env
+          echo MONGO_READONLY_PASSWORD=${{ secrets.MONGO_READONLY_PASSWORD }} >> .env
           cat .env
 
       - name: Node installation
