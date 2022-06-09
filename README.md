@@ -13,8 +13,8 @@ Production ready boilerplate project made with Typescript and Express.
 - MongoDB object modeling using Mongoose.
 - CRUD API routes with an example MongoDB model.
 - Middlewares using API KEY and Bearer Token.
+- User authentication using JWT and password encryption.
 - Jest unit testing.
-- JWT and password encryption example.
 - Dockerfile example.
 
 
