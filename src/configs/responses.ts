@@ -26,5 +26,13 @@
  *              properties:
  *                message:
  *                  type: string
+ *      AuthenticationError:
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: object
+ *              properties:
+ *                message:
+ *                  type: string
  *
  */

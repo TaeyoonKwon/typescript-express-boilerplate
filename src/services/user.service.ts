@@ -76,7 +76,7 @@ export const userLogin = async ({
   if (hash !== passwordDoc.hash) return null;
 
   const payload = {
-    userId,
+    _id: userDoc._id.toString(),
   };
 
   return jwtSign({ payload });

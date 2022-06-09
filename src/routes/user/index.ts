@@ -4,11 +4,18 @@ import {
   createUser,
   deleteUser,
   updateUser,
+  userLogin,
 } from "@/src/services/user.service";
+import { jwtSign } from "@/src/utils/jwt";
 import { logger } from "@utils/logger";
 import express from "express";
+import authRoutes from "./auth";
+import refreshTokenRoutes from "./refresh_token";
 
 const router = express.Router();
+
+router.use("/auth", authRoutes);
+router.use("/refresh_token", refreshTokenRoutes);
 
 router.use(apiKeyAuthMiddleware);
 
@@ -285,6 +292,61 @@ router.delete("/:_id", async (req: express.Request, res: express.Response) => {
     await deleteUser({ _id });
 
     return res.status(200).json({ message: `Successfully deleted.` });
+  } catch (e: any) {
+    logger.error(e);
+    return res
+      .status(e.message ? 400 : 500)
+      .json({ message: e.message || "Server Error" });
+  }
+});
+
+/**
+ *  @swagger
+ *  /user/login:
+ *    post:
+ *      security:
+ *        - ApiKeyAuth: []
+ *      tags: ["User"]
+ *      summary: User Login
+ *      description: User Login using userId and password
+ *      requestBody:
+ *        required: true
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: object
+ *              required:
+ *                - userId
+ *                - password
+ *              properties:
+ *                userId:
+ *                  type: string
+ *                  description: "User login id"
+ *                  example: "ryan123"
+ *                password:
+ *                  type: string
+ *                  description: "User login password"
+ *                  example: "password123$"
+ *      responses:
+ *        200:
+ *          content:
+ *            application/json:
+ *              schema:
+ *                type: string
+ *                description: "JWT"
+ *        400:
+ *          $ref: "#/components/responses/Error"
+ *        500:
+ *          $ref: "#/components/responses/ServerError"
+ *
+ */
+router.post("/login", async (req: express.Request, res: express.Response) => {
+  try {
+    const { userId, password } = req.body;
+
+    const token = await userLogin({ userId, password });
+
+    return res.status(200).json(token);
   } catch (e: any) {
     logger.error(e);
     return res
