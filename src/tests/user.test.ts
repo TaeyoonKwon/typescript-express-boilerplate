@@ -8,7 +8,7 @@ import {
   deleteUser,
   updateUser,
   userLogin,
-} from "../services/user.service";
+} from "@services/user.service";
 import User, { IUser } from "../models/User";
 import Password from "../models/Password";
 

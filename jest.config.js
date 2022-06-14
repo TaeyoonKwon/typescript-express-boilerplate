@@ -9,8 +9,7 @@ module.exports = {
     // "^.+\\.graphql$": "graphql-import-node/jest",
   },
   moduleNameMapper: {
-    "@/(.*)": "<rootDir>/$1",
-    "@src/(.*)": "<rootDir>/src/$1",
+    "@/(.*)": "<rootDir>/src/$1",
     "@configs/(.*)": "<rootDir>/src/configs/$1",
     "@interfaces/(.*)": "<rootDir>/src/interfaces/$1",
     "@middlewares/(.*)": "<rootDir>/src/middlewares/$1",
@@ -18,6 +17,6 @@ module.exports = {
     "@plugins/(.*)": "<rootDir>/src/plugins/$1",
     "@routes/(.*)": "<rootDir>/src/routes/$1",
     "@services/(.*)": "<rootDir>/src/services/$1",
-    "@utils/(.*)": "<rootDir>/src/utils/$1"
+    "@utils/(.*)": "<rootDir>/src/utils/$1",
   },
 };
