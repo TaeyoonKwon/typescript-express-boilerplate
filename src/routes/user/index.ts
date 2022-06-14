@@ -1,14 +1,13 @@
-import { apiKeyAuthMiddleware } from "@/src/middlewares/apiKeyAuth.middleware";
-import User from "@/src/models/User";
+import express from "express";
+import { apiKeyAuthMiddleware } from "@middlewares/apiKeyAuth.middleware";
+import User from "@models/User";
 import {
   createUser,
   deleteUser,
   updateUser,
   userLogin,
-} from "@/src/services/user.service";
-import { jwtSign } from "@/src/utils/jwt";
+} from "@services/user.service";
 import { logger } from "@utils/logger";
-import express from "express";
 import authRoutes from "./auth";
 import refreshTokenRoutes from "./refresh_token";
 

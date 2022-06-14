@@ -1,5 +1,5 @@
-import { jwtRefreshVerify } from "@/src/utils/jwt";
-import { logger } from "@/src/utils/logger";
+import { jwtRefreshVerify } from "@utils/jwt";
+import { logger } from "@utils/logger";
 import express from "express";
 
 const router = express.Router();

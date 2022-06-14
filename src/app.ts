@@ -8,13 +8,11 @@ import rateLimit from "express-rate-limit";
 import swaggerJsDoc from "swagger-jsdoc";
 import swaggerUi from "swagger-ui-express";
 
+import openApiConfig from "@configs/openapi.json";
+import { MongooseInitOptions } from "@interfaces/MongooseInitOptions";
 import { logger, stream } from "@utils/logger";
-
-import openApiConfig from "./configs/openapi.json";
-
-import routes from "./routes/index";
+import routes from "@routes/index";
 import mongoose from "@plugins/mongoose";
-import { MongooseInitOptions } from "./interfaces/MongooseInitOptions";
 
 const swaggerDocs = swaggerJsDoc(openApiConfig);
 

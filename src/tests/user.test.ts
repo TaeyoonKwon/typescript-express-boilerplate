@@ -2,7 +2,7 @@ import "dotenv/config";
 import should from "should";
 import mongoose from "mongoose";
 
-import App from "@/src/app";
+import App from "@/app";
 import {
   createUser,
   deleteUser,

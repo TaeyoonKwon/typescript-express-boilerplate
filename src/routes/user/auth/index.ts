@@ -1,6 +1,6 @@
-import { bearerAuthMiddleware } from "@/src/middlewares/bearerAuth.middleware";
-import User from "@/src/models/User";
-import { logger } from "@/src/utils/logger";
+import { bearerAuthMiddleware } from "@middlewares/bearerAuth.middleware";
+import User from "@models/User";
+import { logger } from "@utils/logger";
 import express from "express";
 
 const router = express.Router();
