@@ -2,7 +2,9 @@ import { cleanEnv, port, str } from "envalid";
 
 const validateEnv = (): void => {
   cleanEnv(process.env, {
-    NODE_ENV: str({ choices: ["test", "dev", "stg", "prod"] }),
+    NODE_ENV: str({
+      choices: ["test", "dev", "development", "stg", "staging", "production"],
+    }),
     PORT: port(),
     MONGO_CLUSTER: str(),
     MONGO_USER: str(),
