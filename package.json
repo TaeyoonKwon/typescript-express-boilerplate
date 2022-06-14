@@ -2,7 +2,7 @@
   "name": "typescript-express-boilerplate",
   "version": "1.0.0",
   "description": "Production ready typescript express boilerplate",
-  "main": "index.js",
+  "main": "dist/server.js",
   "scripts": {
     "build": "tsc && tsc-alias",
     "lint": "eslint --ignore-path .gitignore --ext .ts src/",
